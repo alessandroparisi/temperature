@@ -180,4 +180,7 @@ public class TemperatureTest {
 	          Temperature temp = new Temperature(22, Temperature.Units.KELVIN);   							
 	          assertTrue(temp.unitsToString().equals("K")); 		    
 	       }
+	     public boolean inPrecision(double expVal, double thVal){
+	    	 return ((expVal < (thVal + precision)) && (expVal  > (thVal - precision)));
+	     }
 }
