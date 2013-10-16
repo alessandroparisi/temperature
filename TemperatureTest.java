@@ -158,4 +158,26 @@ public class TemperatureTest {
 	         temp.changeUnits(Temperature.Units.KELVIN);
 	         assertTrue(inPrecision(temp.getValue(), ((22 + 459.67) * 5.0/9.0)));
 	     }
+	     
+	     //Testing if the method toString appropriatly converts the unit to a its respective string
+	     
+	     @Test
+	      public void test_convertUnitsToString_celcius (){
+	          System.out.println("Test if method unitsToString is converting Celcius to °C");
+	          Temperature temp = new Temperature(0, Temperature.Units.CELSIUS); 					
+	          assertTrue(temp.unitsToString().equals("°C")); 		
+	       }
+	     @Test
+	      public void test_convertUnitsToString_fahrenheit (){
+	          System.out.println("Test if method unitsToString is converting Fahrenheit to °F");
+	          Temperature temp = new Temperature(-1, Temperature.Units.FAHRENHEIT);							
+	          assertTrue(temp.unitsToString().equals("°F")); 		  
+	       }
+	     @Test
+	     
+	      public void test_convertUnitsToString_kelvin (){
+	          System.out.println("Test if method unitsToString is converting KELVIN to K");
+	          Temperature temp = new Temperature(22, Temperature.Units.KELVIN);   							
+	          assertTrue(temp.unitsToString().equals("K")); 		    
+	       }
 }
