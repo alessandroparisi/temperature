@@ -92,4 +92,28 @@ public class TemperatureTest {
 	        Temperature temp = new Temperature(100, Temperature.Units.FAHRENHEIT);
 	        assertTrue(temp.getUnits() == Temperature.Units.FAHRENHEIT);
 	     }
+	     
+	     //Test if changeUnits is changing the units and values correctly
+	     
+	     @Test
+	     public void test_changeUnits_KelvinToCelcius(){
+	         System.out.println("Test if method changeUnits, changes the units of temperature from Kelvin to Celsius and stores the correct value");
+	         Temperature temp = new Temperature(20, Temperature.Units.KELVIN); 
+	         temp.changeUnits(Temperature.Units.CELSIUS);
+	         assertTrue(inPrecision(temp.getValue(), 20-273.15));
+	     }
+	     @Test
+	     public void test_changeUnits_KelvinToFahrenheit(){
+	         System.out.println("Test if method changeUnits, changes the units of temperature from Kelvin to Fahrenheit and stores the correct value");
+	         Temperature temp = new Temperature(40.1, Temperature.Units.KELVIN); 
+	         temp.changeUnits(Temperature.Units.FAHRENHEIT);
+	         assertTrue(inPrecision(temp.getValue(), (40.1 * 9.0/5.0 - 459.67)));
+	     }
+	     @Test
+	     public void test_changeUnits_KelvinToKelvin(){
+	         System.out.println("Test if method changeUnits, changes the units of temperature from Kelvin to Kelvin and stores the correct value");
+	         Temperature temp = new Temperature(46.0, Temperature.Units.KELVIN); 
+	         temp.changeUnits(Temperature.Units.KELVIN);
+	         assertTrue(inPrecision(temp.getValue(), 46.0));
+	     }
 }
