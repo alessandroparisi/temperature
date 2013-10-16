@@ -54,4 +54,21 @@ public class TemperatureTest {
 	         System.out.println("Test if the constructor is storing the right values when taking kelvin and result is not valid");
 	         Temperature temp = new Temperature(-1, Temperature.Units.KELVIN);
 	      }
+	     @Test
+	     public void test_constructor_taking2inputs_storingFahrenheit_positive (){
+	         System.out.println("Test if the constructor is storing the right values when taking fahrenheit and result is positive");
+	         Temperature temp = new Temperature(11.5, Temperature.Units.FAHRENHEIT);
+	         assertTrue(inPrecision(temp.getValue(), 11.5));
+	      }
+	     @Test
+	     public void test_constructor_taking2inputs_storingFahrenheit_negative (){
+	         System.out.println("Test if the constructor is storing the right values when taking fahrenheit and result is negative");
+	         Temperature temp = new Temperature(-25, Temperature.Units.FAHRENHEIT);
+	         assertTrue(inPrecision(temp.getValue(), -25));
+	      }
+	     @Test (expected = IllegalArgumentException.class)
+	     public void test_constructor_taking2inputs_storingFahrenheit_pastBoundary (){
+	         System.out.println("Test if the constructor is storing the right values when taking fahrenheit and result is not valid");
+	         Temperature temp = new Temperature(-550, Temperature.Units.FAHRENHEIT);
+	      }
 }
