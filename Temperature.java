@@ -18,7 +18,7 @@
  *          String.format(
  *              "The average temperature of Montreal in October 2012 was %s (%s)",
  *              averageHighInOctober.toString(),
- *              converted.toString()));
+ *              converted.ŒtoString()));
  * </code></pre>
  */
 
@@ -65,7 +65,8 @@ public class Temperature {
                            break;
           default:         throw new IllegalArgumentException();
       }
-
+      if(convertedValue < 0)
+    	  throw new IllegalArgumentException();
       return convertedValue;
   }
 
