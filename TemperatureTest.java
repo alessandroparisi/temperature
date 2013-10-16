@@ -116,4 +116,25 @@ public class TemperatureTest {
 	         temp.changeUnits(Temperature.Units.KELVIN);
 	         assertTrue(inPrecision(temp.getValue(), 46.0));
 	     }
+	     @Test
+	     public void test_changeUnits_CelciusToCelcius(){
+	         System.out.println("Test if method changeUnits, changes the units of temperature from Celcius to Celcius and stores the correct value");
+	         Temperature temp = new Temperature(-32, Temperature.Units.CELSIUS); 
+	         temp.changeUnits(Temperature.Units.CELSIUS);
+	         assertTrue(inPrecision(temp.getValue(), -32));
+	     }
+	     @Test
+	     public void test_changeUnits_CelciusToFahrenheit(){
+	         System.out.println("Test if method changeUnits, changes the units of temperature from Celcius to Fahrenheit and stores the correct value");
+	         Temperature temp = new Temperature(2.32, Temperature.Units.CELSIUS); 
+	         temp.changeUnits(Temperature.Units.FAHRENHEIT);
+	         assertTrue(inPrecision(temp.getValue(), (275.47 * 9.0/5.0 - 459.67))); 
+	     }
+	     @Test
+	     public void test_changeUnits_CelciusToKelvin(){
+	         System.out.println("Test if method changeUnits, changes the units of temperature from Celcius to Kelvin and stores the correct value");
+	         Temperature temp = new Temperature(-22.77, Temperature.Units.CELSIUS); 
+	         temp.changeUnits(Temperature.Units.KELVIN);
+	         assertTrue(inPrecision(temp.getValue(), 250.38)); 
+	     }
 }
